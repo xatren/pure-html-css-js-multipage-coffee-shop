@@ -1,0 +1,639 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s linear;
+}
+:root {
+  --purple: #800080;
+  --white: #fff;
+  --red: red;
+  --orange: orange;
+  --vanilya: #ded0b6;
+}
+
+*::selection {
+  background-color: var(--orange);
+  color: #fff;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #330000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23AD8B73'/%3E%3Cstop offset='1' stop-color='%23330000'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23FA3' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FA3' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+section {
+  padding: 2rem 9%;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  border: 0.2rem solid var(--orange);
+  color: var(--orange);
+  cursor: pointer;
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--vanilya);
+  transition: 0.3s linear;
+
+  z-index: -1;
+}
+
+.btn:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.btn:hover {
+  color: #706233;
+}
+
+.heading {
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 3rem;
+  color: bisque;
+}
+
+.heading span {
+  color: var(--orange);
+}
+
+/* ======================
+        header start
+  =======================
+*/
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffaa00;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpath fill='%23cc8800' d='M486 705.8c-109.3-21.8-223.4-32.2-335.3-19.4C99.5 692.1 49 703 0 719.8V800h843.8c-115.9-33.2-230.8-68.1-347.6-92.2C492.8 707.1 489.4 706.5 486 705.8z'/%3E%3Cpath fill='%23996600' d='M1600 0H0v719.8c49-16.8 99.5-27.8 150.7-33.5c111.9-12.7 226-2.4 335.3 19.4c3.4 0.7 6.8 1.4 10.2 2c116.8 24 231.7 59 347.6 92.2H1600V0z'/%3E%3Cpath fill='%23664400' d='M478.4 581c3.2 0.8 6.4 1.7 9.5 2.5c196.2 52.5 388.7 133.5 593.5 176.6c174.2 36.6 349.5 29.2 518.6-10.2V0H0v574.9c52.3-17.6 106.5-27.7 161.1-30.9C268.4 537.4 375.7 554.2 478.4 581z'/%3E%3Cpath fill='%23332200' d='M0 0v429.4c55.6-18.4 113.5-27.3 171.4-27.7c102.8-0.8 203.2 22.7 299.3 54.5c3 1 5.9 2 8.9 3c183.6 62 365.7 146.1 562.4 192.1c186.7 43.7 376.3 34.4 557.9-12.6V0H0z'/%3E%3Cpath fill='%23000000' d='M181.8 259.4c98.2 6 191.9 35.2 281.3 72.1c2.8 1.1 5.5 2.3 8.3 3.4c171 71.6 342.7 158.5 531.3 207.7c198.8 51.8 403.4 40.8 597.3-14.8V0H0v283.2C59 263.6 120.6 255.7 181.8 259.4z'/%3E%3Cpath fill='%23160901' d='M1600 0H0v136.3c62.3-20.9 127.7-27.5 192.2-19.2c93.6 12.1 180.5 47.7 263.3 89.6c2.6 1.3 5.1 2.6 7.7 3.9c158.4 81.1 319.7 170.9 500.3 223.2c210.5 61 430.8 49 636.6-16.6V0z'/%3E%3Cpath fill='%232c1201' d='M454.9 86.3C600.7 177 751.6 269.3 924.1 325c208.6 67.4 431.3 60.8 637.9-5.3c12.8-4.1 25.4-8.4 38.1-12.9V0H288.1c56 21.3 108.7 50.6 159.7 82C450.2 83.4 452.5 84.9 454.9 86.3z'/%3E%3Cpath fill='%23431b02' d='M1600 0H498c118.1 85.8 243.5 164.5 386.8 216.2c191.8 69.2 400 74.7 595 21.1c40.8-11.2 81.1-25.2 120.3-41.7V0z'/%3E%3Cpath fill='%23592402' d='M1397.5 154.8c47.2-10.6 93.6-25.3 138.6-43.8c21.7-8.9 43-18.8 63.9-29.5V0H643.4c62.9 41.7 129.7 78.2 202.1 107.4C1020.4 178.1 1214.2 196.1 1397.5 154.8z'/%3E%3Cpath fill='%236F2D03' d='M1315.3 72.4c75.3-12.6 148.9-37.1 216.8-72.4h-723C966.8 71 1144.7 101 1315.3 72.4z'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 2rem 9%;
+  box-shadow: 0 0.5rem 1rem orange;
+}
+
+header .logo {
+  font-size: 2.3rem;
+  font-weight: bolder;
+  color: orange;
+}
+header .logo i {
+  padding: 0.5rem;
+  color: var(--red);
+}
+header .navbar a {
+  font-size: 2rem;
+  margin-left: 2rem;
+  color: white;
+}
+header .navbar a:hover {
+  color: var(--orange);
+}
+header #menu-bar {
+  font-size: 3rem;
+  cursor: pointer;
+  color: orange;
+  border: 0.1rem solid #666;
+  border-radius: 0.3rem;
+
+  padding: 0.5rem 1.5rem;
+  display: none;
+}
+
+/* ======================
+  |      header end      |
+  =======================
+*/
+
+/* ======================
+   |     home start     |
+  =======================
+*/
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("img/background3.com.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.home .content {
+  flex: 1 1 40rem;
+  padding-top: 6.5rem;
+}
+.home .image {
+  flex: 1 1 40rem;
+}
+.home .image img {
+  width: 100%;
+  padding: 0.1rem;
+  box-shadow: 1px 1px 10px rgba(1, 1, 1, 1);
+
+  animation: float 3s linear infinite;
+}
+.home .video {
+  flex: 1 1 40rem;
+}
+
+.home .video video {
+  width: 100%;
+  padding: 0.1rem;
+  box-shadow: 1px 1px 10px black;
+
+  animation: float 3s linear infinite;
+}
+
+.home .content h3 {
+  font-size: 5rem;
+  color: white;
+}
+.home .content p {
+  font-size: 1.7rem;
+  color: white;
+  padding: 1rem 0;
+}
+
+.home .content h5 {
+  font-size: 2.2rem;
+  color: #ffcb74;
+}
+
+/* ======================
+        home end
+  =======================
+*/
+
+/* ====================================================
+        Uzmanlık alanımız | speciality section starts
+  =====================================================
+
+  */
+
+.speciality .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.speciality .box-container .box {
+  flex: 1 1 30rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 0.2rem solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+.speciality .box-container .box .image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: -100%;
+  left: 0;
+}
+
+.speciality .box-container .box .content {
+  text-align: center;
+  background-color: #ead7bb;
+  padding: 2rem;
+}
+
+.speciality .box-container .box .content img {
+  margin: 1.5rem 0;
+}
+.speciality .box-container .box .content h3 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.speciality .box-container .box .content p {
+  font-size: 1.6rem;
+  color: #666;
+  padding: 1rem 0;
+}
+.speciality .box-container .box:hover .image {
+  top: 0;
+}
+.speciality .box-container .box:hover .content {
+  transform: translateY(100%);
+}
+
+/* ======================
+        Uzmanlık Alanımız speciality section
+  =======================
+*/
+
+/* 
+====================
+footer section starts
+====================
+*/
+.footer {
+  background-color: #ec8502;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23EC8502' cx='50' cy='0' r='50'/%3E%3Cg fill='%23e37e06' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23da780a' cx='50' cy='100' r='50'/%3E%3Cg fill='%23d0710c' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c76b0e' cx='50' cy='200' r='50'/%3E%3Cg fill='%23be6410' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b45e11' cx='50' cy='300' r='50'/%3E%3Cg fill='%23ab5811' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a25211' cx='50' cy='400' r='50'/%3E%3Cg fill='%23984c11' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%238f4711' cx='50' cy='500' r='50'/%3E%3Cg fill='%23864111' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%237d3c10' cx='50' cy='600' r='50'/%3E%3Cg fill='%23733610' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%236a310f' cx='50' cy='700' r='50'/%3E%3Cg fill='%23612c0e' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%2358270c' cx='50' cy='800' r='50'/%3E%3Cg fill='%234f230a' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23471e07' cx='50' cy='900' r='50'/%3E%3Cg fill='%233e1904' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23361500' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: contain;
+  text-align: center;
+
+  box-shadow: 0 0 15px orange;
+}
+.footer .share {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer .credit {
+  padding: 2.5rem 1rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.footer .credit span {
+  color: var(--orange);
+}
+
+/* 
+====================
+footer section ends
+====================
+*/
+
+/* ======================
+        loader gif starts
+  =======================
+*/
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.loader-container.fade-out {
+  top: -170%;
+}
+/*
+ ========================
+        loader gif end
+  ========================
+*/
+
+/*
+    ========================
+    Responsive Nav-Bar Starts
+    ========================
+*/
+.navbar-toggle {
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #330000;
+  }
+
+  .navbar.show {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar a:hover {
+    background-color: #ded0b6;
+  }
+  .navbars a {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 900px) {
+    .navbar {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #330000;
+    }
+
+    .navbar a:hover {
+      background-color: #ded0b6;
+    }
+
+    .navbar.show {
+      display: flex;
+    }
+
+    .navbar a {
+      text-align: center;
+    }
+  }
+}
+
+/*
+    ========================
+    Responsive Nav-Bar Ends
+    ========================
+*/
+
+/* 
+====================
+order section starts
+====================
+*/
+.order .row {
+  padding: 2rem;
+  box-shadow: 0 0.5rem 1rem black;
+  background-color: #ead7bb;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.order .row .responsive {
+  overflow: hidden;
+
+  padding-bottom: 30.25%;
+
+  position: relative;
+
+  height: 0;
+}
+
+.order .row form {
+  flex: 1 1 50rem;
+  padding: 1rem;
+}
+.order .row form .inputBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.order .row form .inputBox input,
+.order .row form textarea {
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1.7rem;
+  color: #333;
+  text-transform: none;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+
+  width: 49%;
+}
+.order .row form textarea {
+  width: 100%;
+  resize: none;
+  height: 15rem;
+}
+.order .row form .btn {
+  background-color: black;
+}
+.order .row form .btn:hover {
+  background-color: var(--vanilya);
+}
+
+.order .content p {
+  font-size: 1.7rem;
+  color: rgb(0, 0, 0);
+  padding: 1rem 0;
+  display: flex;
+}
+
+.order .content h5 {
+  font-size: 2.4rem;
+  display: flex;
+  color: orange;
+}
+
+.order .content h3 {
+  font-size: 4rem;
+  text-align: center;
+}
+/* 
+====================
+order section end
+====================
+*/
+
+/* ======================
+    popular starts
+  =======================
+*/
+.popular .box-container .box .btn {
+  background-color: #330000;
+  color: orange;
+}
+
+.popular .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.popular .box-container .box {
+  flex: 1 1 30rem;
+  padding: 2rem;
+  background-color: #ead7bb;
+  box-shadow: 0 0.5rem 1rem black;
+  border-radius: 0.5rem;
+
+  text-align: center;
+  position: relative;
+}
+.popular .box-container .box img {
+  height: 25rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.popular .box-container .box .price {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  background: var(--vanilya);
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.popular .box-container .box h3 {
+  color: #333;
+  font-size: 2.5rem;
+  padding-top: 1rem;
+}
+.popular .box-container .box .stars i {
+  color: gold;
+  font-size: 1.7rem;
+  padding: 1rem;
+}
+
+/* ======================
+    popular ends
+  =======================
+*/
+
+/* ======================
+    review start
+  =======================
+*/
+
+.review .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+.review .box-container .box {
+  text-align: center;
+  padding: 8rem;
+  border: 1rem solid #fff;
+  box-shadow: 0 0.5rem 1rem black;
+  border-radius: 0.5rem;
+
+  flex: 1 1 30rem;
+  background-color: #bca37f;
+  margin-top: 6rem;
+}
+.review .box-container .box img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 35%;
+
+  border: 1rem solid #fff;
+  margin-top: -6rem;
+  object-fit: cover;
+}
+.review .box-container .box h3 {
+  font-size: 2.5rem;
+  color: white;
+  padding: 0.5rem 0;
+}
+.review .box-container .box .stars i {
+  font-size: 2rem;
+  color: yellow;
+  padding: 0.5rem 0;
+}
+.review .box-container .box p {
+  font-size: 1.7rem;
+  color: #eee;
+  padding: 1rem;
+}
+/* ======================
+    review end
+  =======================
+*/
+
+/* ======================
+    gallery start
+  =======================
+*/
+.gallery .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.gallery .box-container .box {
+  flex: 1 1 50rem;
+  height: 35rem;
+  border: 1rem solid #fff;
+  box-shadow: 0 0.5rem 1rem black;
+  border-radius: 0.5rem;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery .box-container .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery .box-container .box .content {
+  position: absolute;
+  top: -103%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  padding-top: 5rem;
+  text-align: center;
+}
+.gallery .box-container .box .content h3 {
+  font-size: 2.5rem;
+  color: #333;
+}
+.gallery .box-container .box .content p {
+  font-size: 1.7rem;
+  color: #666;
+}
+.gallery .box-container .box:hover .content {
+  top: 0;
+}
+
+/* ======================
+    gallery end
+  =======================
+*/
